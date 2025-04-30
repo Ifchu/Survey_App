@@ -1,0 +1,45 @@
+{
+  "users": [
+    {
+      "id": "21de",
+      "name": "admin",
+      "email": "admin@admin.bg",
+      "password": "123456"
+    },
+    {
+      "id": "9ec9",
+      "name": "Ивайло Георгиев",
+      "email": "230sz@unibit.bg",
+      "password": "123"
+    }
+  ],
+  "polls": [
+    {
+      "id": "92c5",
+      "question": "Коя държава бихте посетили?",
+      "options": [
+        {
+          "id": 1,
+          "text": "Чехия",
+          "votes": 0
+        },
+        {
+          "id": 2,
+          "text": "Франция",
+          "votes": 0
+        },
+        {
+          "id": 3,
+          "text": "Сърбия",
+          "votes": 0
+        },
+        {
+          "id": 4,
+          "text": "Италия",
+          "votes": 0
+        }
+      ],
+      "author": "admin"
+    }
+  ]
+}
