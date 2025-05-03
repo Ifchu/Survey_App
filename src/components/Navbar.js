@@ -1,20 +1,21 @@
-// src/components/Navbar.js
-import { Link } from 'react-router-dom';
-import React, { useContext } from 'react';
-import { AuthContext } from '../context/AuthContext';
-
-
+//src/components/Navbar.js
+import { Link } from 'react-router-dom'; // За навигация между различни страници в приложението
+import React, { useContext } from 'react'; // Използваме React и useContext, за да достъпим данни от контекста
+import { AuthContext } from '../context/AuthContext'; // Импортираме контекста за потребителите
 
 function Navbar() {
-	const { user, logout } = useContext(AuthContext);
-   return (
+  // Вземаме данни за потребителя и функцията за изход от контекста
+  const { user, logout } = useContext(AuthContext);
+
+  return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-4">
       <Link to="/" className="navbar-brand">
-        🗳️ Voting App
+        🗳️ Survey App
       </Link>
 
       <div className="collapse navbar-collapse">
         <ul className="navbar-nav ms-auto">
+          {/* Менюто със линкове, които водят към различни страници */}
           <li className="nav-item">
             <Link to="/" className="nav-link">Начало</Link>
           </li>
@@ -25,6 +26,7 @@ function Navbar() {
             <Link to="/create" className="nav-link">Създай анкета</Link>
           </li>
 
+          {/* Ако потребителят е влязъл, показваме поздрав и бутон за изход */}
           {user ? (
             <>
               <li className="nav-item">
@@ -37,6 +39,7 @@ function Navbar() {
               </li>
             </>
           ) : (
+            // Ако потребителят не е влязъл, показваме линкове за вход и регистрация
             <>
               <li className="nav-item">
                 <Link to="/login" className="nav-link">Вход</Link>
