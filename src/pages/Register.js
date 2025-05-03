@@ -82,7 +82,7 @@ function Register() {
 
   
   return (
-    <div tyle={styles.wrapper}>
+    <div style={styles.wrapper}>
       <form style={styles.card} onSubmit={handleRegister}>
         <h2 style={styles.title}>Регистрация</h2>
         <div>
