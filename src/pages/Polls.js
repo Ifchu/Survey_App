@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../context/AuthContext';
 
-function PollsSimple() {
+function Polls() {
   const [polls, setPolls] = useState([]);
   const { user } = useContext(AuthContext);
 
@@ -119,7 +119,7 @@ function PollsSimple() {
               <button onClick={() => handleDelete(poll.id)} style={{ backgroundColor: '#dc3545', color: 'white', border: 'none', padding: '8px 15px', borderRadius: '3px', marginTop: '15px', cursor: 'pointer' }}>
                 Изтрий
               </button>
-            // )}
+            )}
           </div>
         ))
       )}
@@ -127,4 +127,4 @@ function PollsSimple() {
   );
 }
 
-export default PollsSimple;
+export default Polls
