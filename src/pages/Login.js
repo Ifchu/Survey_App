@@ -1,26 +1,32 @@
 import React, { useRef, useContext } from 'react';
 import axios from 'axios';
-import { AuthContext } from '../context/AuthContext';
+import { AuthContext } from '../context/AuthContext'; // Импортираме контекста за автентикация
 
 const Login = () => {
-  const { login } = useContext(AuthContext); // Вземаме login от контекста
+  // Вземаме функцията login от контекста, за да запазим текущия потребител
+  const { login } = useContext(AuthContext);
 
-  const emailRef = useRef();    // Референция към input за имейл
-  const passwordRef = useRef(); // Референция към input за парола
+  // Създаваме референции към полетата за имейл и парола
+  const emailRef = useRef();
+  const passwordRef = useRef();
 
+  // Обработваме формата при submit
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Спираме презареждането
+    e.preventDefault(); // Спираме презареждането на страницата
 
-    const email = emailRef.current.value;       // Вземаме текущата стойност
-    const password = passwordRef.current.value; // на двете полета
+    // Вземаме въведените стойности от input полетата
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
 
     try {
+      // Изпращаме заявка към backend-а с въведените имейл и парола
       const response = await axios.get(`http://localhost:5000/users?email=${email}&password=${password}`);
 
+      // Ако съществува потребител с тези данни
       if (response.data.length > 0) {
         const user = response.data[0];
         alert(`Добре дошъл, ${user.name}!`);
-        login(user);
+        login(user); // Записваме потребителя в контекста (вход)
       } else {
         alert('Грешен имейл или парола!');
       }
@@ -29,9 +35,10 @@ const Login = () => {
       alert('Възникна грешка при опит за вход.');
     }
   };
- 
-  // Стилове дефинирани като обекти
-    const styles = {
+
+  // CSS стилове, дефинирани като JS обекти
+  const styles = {
+    // Центрираме съдържанието по средата на екрана
     wrapper: {
       height: '100vh',
       display: 'flex',
@@ -40,6 +47,7 @@ const Login = () => {
       background: 'linear-gradient(145deg, #eef1f5, #d4dce4)',
       fontFamily: 'Arial, sans-serif',
     },
+    // Карта (кутия) със съдържанието
     card: {
       background: '#fff',
       padding: '40px',
@@ -51,18 +59,21 @@ const Login = () => {
       flexDirection: 'column',
       gap: '20px',
     },
+    // Заглавие
     title: {
       fontSize: '24px',
       fontWeight: 'bold',
       textAlign: 'center',
       color: '#333',
     },
+    // Input стилове
     input: {
       padding: '14px',
       borderRadius: '8px',
       border: '1px solid #ccc',
       fontSize: '16px',
     },
+    // Бутон за вход
     button: {
       padding: '14px',
       backgroundColor: '#007bff',
@@ -74,28 +85,40 @@ const Login = () => {
       cursor: 'pointer',
       transition: 'background 0.3s ease',
     },
+    // Hover цвят при задържане
     buttonHover: {
       backgroundColor: '#0056b3',
     },
   };
 
   return (
-    <div style={styles.container}>
-      <h2 style={styles.container}>Вход</h2>
-      <form style={styles.container} onSubmit={handleSubmit}>
+    <div style={styles.wrapper}>
+      {/* Формата за вход */}
+      <form style={styles.card} onSubmit={handleSubmit}>
+        {/* Заглавие */}
+        <h2 style={styles.title}>Вход</h2>
+
+        {/* Поле за имейл */}
         <div>
           <label>Имейл:</label>
           <input type="email" ref={emailRef} required />
         </div>
 
+        {/* Поле за парола */}
         <div>
           <label>Парола:</label>
           <input type="password" ref={passwordRef} required />
         </div>
 
-        <button type="submit"  style={styles.button}
+        {/* Бутон за вход със стил и hover ефект */}
+        <button
+          type="submit"
+          style={styles.button}
           onMouseOver={(e) => (e.target.style.backgroundColor = styles.buttonHover.backgroundColor)}
-          onMouseOut={(e) => (e.target.style.backgroundColor = styles.button.backgroundColor)}>Влез</button>
+          onMouseOut={(e) => (e.target.style.backgroundColor = styles.button.backgroundColor)}
+        >
+          Влез
+        </button>
       </form>
     </div>
   );
