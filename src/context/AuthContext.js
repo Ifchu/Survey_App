@@ -1,3 +1,4 @@
+
 import { createContext, useState } from 'react';
 
 // Създаваме контекст, който ще споделя информация за потребителя
