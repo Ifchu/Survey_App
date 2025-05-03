@@ -1,4 +1,4 @@
-//src/components/Navbar.js
+
 import { Link } from 'react-router-dom'; // За навигация между различни страници в приложението
 import React, { useContext } from 'react'; // Използваме React и useContext, за да достъпим данни от контекста
 import { AuthContext } from '../context/AuthContext'; // Импортираме контекста за потребителите
