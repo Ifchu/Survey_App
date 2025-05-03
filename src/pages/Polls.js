@@ -6,10 +6,11 @@ function Polls() {
   const [polls, setPolls] = useState([]);
   const { user } = useContext(AuthContext);
 
+   // При първото зареждане на компонента, извличаме анкетите.
   useEffect(() => {
     fetchPolls();
   }, []);
-
+// Асинхронна функция за получаване на анкетите от сървъра.
   const fetchPolls = async () => {
     try {
       const response = await axios.get('http://localhost:5000/polls');
@@ -18,18 +19,18 @@ function Polls() {
       console.error('Грешка при зареждане:', error);
     }
   };
-
+ // Проверява дали потребителят е гласувал за дадена анкета.
   const hasVoted = (pollId) => {
     const voted = JSON.parse(localStorage.getItem('voted') || '{}');
     return !!voted[pollId];
   };
-
+ // Записва в localStorage, че потребителят е гласувал за дадена анкета.
   const markVoted = (pollId) => {
     const voted = JSON.parse(localStorage.getItem('voted') || '{}');
     voted[pollId] = true;
     localStorage.setItem('voted', JSON.stringify(voted));
   };
-
+// Обработва гласуването на потребител.
   const handleVote = async (pollId, optionId) => {
     if (!user) {
       alert('Влезте, за да гласувате.');
@@ -39,7 +40,7 @@ function Polls() {
       alert('Вече гласувахте.');
       return;
     }
-
+	  // Намираме анкетата и обновяваме гласовете на избраната опция.
     const updatedPolls = polls.map(poll =>
       poll.id === pollId
         ? {
@@ -61,7 +62,7 @@ function Polls() {
       console.error('Грешка при гласуване:', error);
     }
   };
-
+	 // Изтрива анкета само админа.
   const handleDelete = async (pollId) => {
     if (!window.confirm('Сигурни ли сте?')) return;
     try {
