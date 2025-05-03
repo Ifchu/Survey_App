@@ -11,6 +11,12 @@
       "name": "Ивайло Георгиев",
       "email": "230sz@unibit.bg",
       "password": "123"
+    },
+    {
+      "id": "82f7",
+      "name": "Велислав Иванов",
+      "email": "ivelislav3@abv.bg",
+      "password": "123"
     }
   ],
   "polls": [
@@ -36,10 +42,59 @@
         {
           "id": 4,
           "text": "Италия",
-          "votes": 0
+          "votes": 1
         }
       ],
       "author": "admin"
+    },
+    {
+      "id": "112f",
+      "question": "Любим цвят",
+      "options": [
+        {
+          "id": 1,
+          "text": "Червено",
+          "votes": 1
+        },
+        {
+          "id": 2,
+          "text": "Зелено",
+          "votes": 0
+        },
+        {
+          "id": 3,
+          "text": "Бяло",
+          "votes": 0
+        },
+        {
+          "id": 4,
+          "text": "Черно",
+          "votes": 0
+        }
+      ],
+      "author": "Велислав Иванов"
+    },
+    {
+      "id": "a382",
+      "question": "Велислав да получи ли тройка",
+      "options": [
+        {
+          "id": 1,
+          "text": "да",
+          "votes": 1
+        },
+        {
+          "id": 2,
+          "text": "не",
+          "votes": 0
+        },
+        {
+          "id": 3,
+          "text": "може би",
+          "votes": 0
+        }
+      ],
+      "author": "Велислав Иванов"
     }
   ]
 }
