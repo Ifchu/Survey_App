@@ -31,49 +31,51 @@ const Login = () => {
   };
  
   // Стилове дефинирани като обекти
-   const styles = {
-    container: {
+    const styles = {
+    wrapper: {
+      height: '100vh',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      height: '100vh',
-      backgroundColor: '#f0f2f5',
-      fontFamily: 'Segoe UI, sans-serif',
+      background: 'linear-gradient(145deg, #eef1f5, #d4dce4)',
+      fontFamily: 'Arial, sans-serif',
     },
-    form: {
-      backgroundColor: '#ffffff',
+    card: {
+      background: '#fff',
       padding: '40px',
-      borderRadius: '12px',
-      boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)',
+      borderRadius: '16px',
+      boxShadow: '0 10px 25px rgba(0, 0, 0, 0.15)',
       width: '100%',
       maxWidth: '400px',
       display: 'flex',
       flexDirection: 'column',
+      gap: '20px',
     },
     title: {
-      fontSize: '1.8rem',
+      fontSize: '24px',
       fontWeight: 'bold',
-      marginBottom: '20px',
       textAlign: 'center',
       color: '#333',
     },
     input: {
-      padding: '12px',
-      marginBottom: '15px',
+      padding: '14px',
       borderRadius: '8px',
       border: '1px solid #ccc',
-      fontSize: '1rem',
-      outline: 'none',
+      fontSize: '16px',
     },
     button: {
-      padding: '12px',
+      padding: '14px',
       backgroundColor: '#007bff',
       color: 'white',
       fontWeight: 'bold',
       border: 'none',
       borderRadius: '8px',
+      fontSize: '16px',
       cursor: 'pointer',
-      transition: 'background-color 0.3s ease',
+      transition: 'background 0.3s ease',
+    },
+    buttonHover: {
+      backgroundColor: '#0056b3',
     },
   };
 
