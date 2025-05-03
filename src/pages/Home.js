@@ -1,3 +1,4 @@
+// Updated by Velislav on 3.05
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
@@ -8,7 +9,7 @@ function Home() {
   return (
     <div className="container mt-5">
       <div className="text-center p-5 bg-light rounded shadow-sm">
-        <h1 className="mb-4">🗳️ Добре дошли във Voting App</h1>
+        <h1 className="mb-4">🗳️ Добре дошли във Survey App</h1>
 
         <p className="lead">
           Тук можете да създавате анкети, да гласувате и да видите какво мислят другите!
