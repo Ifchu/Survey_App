@@ -31,35 +31,39 @@ const Login = () => {
   };
  
   // Стилове дефинирани като обекти
-  const styles = {
+   const styles = {
     container: {
-      height: '100vh',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: '#f3f4f6',
-      fontFamily: 'Arial, sans-serif',
+      height: '100vh',
+      backgroundColor: '#f0f2f5',
+      fontFamily: 'Segoe UI, sans-serif',
     },
     form: {
       backgroundColor: '#ffffff',
-      padding: '30px',
+      padding: '40px',
       borderRadius: '12px',
-      boxShadow: '0 8px 20px rgba(0, 0, 0, 0.1)',
-      width: '300px',
+      boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)',
+      width: '100%',
+      maxWidth: '400px',
       display: 'flex',
       flexDirection: 'column',
     },
-    heading: {
-      textAlign: 'center',
+    title: {
+      fontSize: '1.8rem',
+      fontWeight: 'bold',
       marginBottom: '20px',
+      textAlign: 'center',
       color: '#333',
     },
     input: {
       padding: '12px',
       marginBottom: '15px',
-      border: '1px solid #ccc',
       borderRadius: '8px',
+      border: '1px solid #ccc',
       fontSize: '1rem',
+      outline: 'none',
     },
     button: {
       padding: '12px',
@@ -69,11 +73,8 @@ const Login = () => {
       border: 'none',
       borderRadius: '8px',
       cursor: 'pointer',
-      transition: 'background 0.3s ease',
+      transition: 'background-color 0.3s ease',
     },
-    buttonHover: {
-      backgroundColor: '#0056b3',
-    }
   };
 
   return (
