@@ -1,26 +1,26 @@
-// Updated by Velislav on 3.05
-import React, { useState, useContext } from 'react';
+import React, { useRef, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../context/AuthContext';
 
 const Login = () => {
-	
-  const { login } = useContext(AuthContext);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const { login } = useContext(AuthContext); // Вземаме login от контекста
+
+  const emailRef = useRef();    // Референция към input за имейл
+  const passwordRef = useRef(); // Референция към input за парола
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Спираме презареждането
+
+    const email = emailRef.current.value;       // Вземаме текущата стойност
+    const password = passwordRef.current.value; // на двете полета
 
     try {
-      // Изпращаме заявка към сървъра
       const response = await axios.get(`http://localhost:5000/users?email=${email}&password=${password}`);
 
       if (response.data.length > 0) {
-			const user = response.data[0];
-			alert(`Добре дошъл, ${user.name}!`);
-         // Записваме потребителя в localStorage
-		login(user);
+        const user = response.data[0];
+        alert(`Добре дошъл, ${user.name}!`);
+        login(user);
       } else {
         alert('Грешен имейл или парола!');
       }
@@ -31,38 +31,23 @@ const Login = () => {
   };
 
   return (
-    <div className="container mt-5" style={{ maxWidth: '400px' }}>
-      <h2 className="mb-4 text-center">Вход</h2>
+    <div>
+      <h2>Вход</h2>
       <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label className="form-label">Имейл</label>
-          <input
-            type="email"
-            className="form-control"
-            placeholder="example@mail.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+        <div>
+          <label>Имейл:</label>
+          <input type="email" ref={emailRef} required />
         </div>
 
-        <div className="mb-3">
-          <label className="form-label">Парола</label>
-          <input
-            type="password"
-            className="form-control"
-            placeholder="••••••••"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+        <div>
+          <label>Парола:</label>
+          <input type="password" ref={passwordRef} required />
         </div>
 
-        <button type="submit" className="btn btn-primary w-100">Влез</button>
+        <button type="submit">Влез</button>
       </form>
     </div>
   );
-}
-
+};
 
 export default Login;
