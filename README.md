@@ -21,7 +21,6 @@
 - 🧩 React Router DOM
 - 📡 Axios (REST API заявки)
 - 📁 JSON Server (за backend симулация)
-- 🎨 Bootstrap (интерфейс)
 - 🧠 Context API (автентикация)
 
 
