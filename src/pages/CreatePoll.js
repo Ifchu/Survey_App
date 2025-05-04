@@ -42,7 +42,7 @@ function CreatePoll() {
     const pollData = {
       question: question, // Вземаме въпроса от състоянието question.
       options: options.map((text, index) => ({ id: index + 1, text, votes: 0 })), // Мапваме масива options, за да създадем масив от обекти, всеки с id, текст на опцията и начален брой гласове 0.
-      author: user?.name || 'Анонимен', // Вземаме името на автора от контекста user, или 'Анонимен', ако потребителят не е логнат.
+      author: user?.name  // Вземаме името на автора от контекста user.
     };
 
     try {
